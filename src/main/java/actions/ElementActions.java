@@ -3,6 +3,7 @@ package actions;
 import hooks.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import webdriver_waits.Waits;
 
 import java.util.List;
@@ -153,5 +154,14 @@ public class ElementActions {
             e.printStackTrace();
         }
         return elementHeight;
+    }
+
+    public static void selectByVisibleText(By elementLocated,String visibleText) {
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
