@@ -7,7 +7,7 @@
             <class name="LongPressTest"/>
             <class name="ScrollTest"/>
             <class name="SwipeTest"/>
-            <class name="DragAndDropTest"/>
+            <class name="SignUpTest"/>
             <class name="MiscellaneousTest"/>
         </classes>
     </test>
