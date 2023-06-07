@@ -1,7 +1,9 @@
 package hooks;
 
+import actions.ElementActions;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utilities.reader_manager.properties_reader.ConfigUtils;
@@ -21,7 +23,9 @@ public class TestBase {
                 throw new RuntimeException();
             }
         }
-        Waits.visibilityOfElementLocated(AppiumBy.id("android:id/action_bar_container"));
+        Waits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/splashscreen"));
+        Assert.assertTrue(ElementActions.findElement(AppiumBy.id("com.androidsample.generalstore:id/splashscreen")).isDisplayed());
+        Waits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop"));
     }
 
     @AfterClass(alwaysRun = true)
