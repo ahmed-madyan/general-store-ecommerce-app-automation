@@ -19,7 +19,7 @@ public class SignUpTest extends TestBase {
         AppiumActions.scrollIntoView(AppiumBy.xpath(country.replace("{country}", "Egypt")), "Egypt");
         MobileGestures.click(AppiumBy.xpath(country.replace("{country}", "Egypt")));
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
