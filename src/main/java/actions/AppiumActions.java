@@ -67,9 +67,17 @@ public class AppiumActions {
         }
     }
 
-    public static void setPortrait() {
+    public static void setPortraitMode() {
         try {
             DriverManager.getDriverInstance().rotate(ScreenOrientation.PORTRAIT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void setLandscapeMode() {
+        try {
+            DriverManager.getDriverInstance().rotate(ScreenOrientation.LANDSCAPE);
         } catch (Exception e) {
             e.printStackTrace();
         }
