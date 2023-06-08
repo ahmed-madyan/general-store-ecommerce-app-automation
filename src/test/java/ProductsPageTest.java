@@ -6,6 +6,7 @@ import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import utilities.reader_manager.properties_reader.PropertiesDataManager;
 import webdriver_waits.Waits;
 
 public class ProductsPageTest extends TestBase {
@@ -26,7 +27,7 @@ public class ProductsPageTest extends TestBase {
         AppiumActions.scrollIntoView("Air Jordan 9 Retro");
         for (int i = 0; i < ElementActions.findElements(productName).size() - 1; i++) {
             if (ElementActions.findElements(productName).get(i).getText().contains("Air Jordan 9 Retro")) {
-                AppiumActions.scrollIntoView("ADD TO CART");
+//                AppiumActions.scrollIntoView("ADD TO CART");
                 MobileGestures.click(ElementActions.findElements(addToCard).get(i));
             }
         }
@@ -43,5 +44,8 @@ public class ProductsPageTest extends TestBase {
         ElementActions.sendKeys(name_TextFiled, "Ahmed");
         MobileGestures.click(male_RadioBtn);
         MobileGestures.click(letsShop_btn);
+        if (PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES).equals("remote")) {
+            AppiumActions.rotateLeft();
+        }
     }
 }
