@@ -7,9 +7,9 @@ public class SoftAssert {
 
     public static void assertElementCheckable(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isCheckable(elementLocated), "Element is not checkable");
+            softAssert.assertTrue(ElementState.isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
             softAssert.assertAll();
-            System.out.println("Element is checkable");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is checkable");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -17,9 +17,9 @@ public class SoftAssert {
 
     public static void assertElementChecked(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isChecked(elementLocated), "Element is not checked");
+            softAssert.assertTrue(ElementState.isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
             softAssert.assertAll();
-            System.out.println("Element is checked");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is checked");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,9 +27,9 @@ public class SoftAssert {
 
     public static void assertElementClickable(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isClickable(elementLocated), "Element is not clickable");
+            softAssert.assertTrue(ElementState.isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
             softAssert.assertAll();
-            System.out.println("Element is clickable");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is clickable");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,9 +37,9 @@ public class SoftAssert {
 
     public static void assertElementEnabled(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isEnabled(elementLocated), "Element is not enabled");
+            softAssert.assertTrue(ElementState.isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
             softAssert.assertAll();
-            System.out.println("Element is enabled");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is enabled");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,9 +47,9 @@ public class SoftAssert {
 
     public static void assertElementFocusable(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isFocusable(elementLocated), "Element is not focusable");
+            softAssert.assertTrue(ElementState.isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
             softAssert.assertAll();
-            System.out.println("Element is focusable");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is focusable");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,9 +57,9 @@ public class SoftAssert {
 
     public static void assertElementFocused(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isFocused(elementLocated), "Element is not focused");
+            softAssert.assertTrue(ElementState.isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
             softAssert.assertAll();
-            System.out.println("Element is focused");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is focused");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,9 +67,9 @@ public class SoftAssert {
 
     public static void assertElementLongClickable(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isLongClickable(elementLocated), "Element is not long-clickable");
+            softAssert.assertTrue(ElementState.isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
             softAssert.assertAll();
-            System.out.println("Element is long-clickable");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is long-clickable");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,9 +77,9 @@ public class SoftAssert {
 
     public static void assertElementPassword(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isPassword(elementLocated), "Element is not password");
+            softAssert.assertTrue(ElementState.isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
             softAssert.assertAll();
-            System.out.println("Element is password");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is password");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,9 +87,9 @@ public class SoftAssert {
 
     public static void assertElementScrollable(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isScrollable(elementLocated), "Element is not scrollable");
+            softAssert.assertTrue(ElementState.isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
             softAssert.assertAll();
-            System.out.println("Element is scrollable");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is scrollable");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,9 +97,9 @@ public class SoftAssert {
 
     public static void assertElementSelected(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isSelected(elementLocated), "Element is not selected");
+            softAssert.assertTrue(ElementState.isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
             softAssert.assertAll();
-            System.out.println("Element is selected");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is selected");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,9 +107,9 @@ public class SoftAssert {
 
     public static void assertElementDisplayed(By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isDisplayed(elementLocated), "Element is not displayed");
+            softAssert.assertTrue(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
             softAssert.assertAll();
-            System.out.println("Element is displayed");
+            System.out.println("Element located with {" + elementLocated.toString() + "} is displayed");
         } catch (Exception e) {
             e.printStackTrace();
         }

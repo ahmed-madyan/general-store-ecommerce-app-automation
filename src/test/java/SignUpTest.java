@@ -26,8 +26,7 @@ public class SignUpTest extends TestBase {
         HardAssert.assertElementDisplayed(letsShop_btn);
     }
 
-    @Test
-
+    @Test(dependsOnMethods = "validateFormElements")
     public void signUp() {
         MobileGestures.click(country_List);
         String country = ("//android.widget.TextView[@text='{country}']");
