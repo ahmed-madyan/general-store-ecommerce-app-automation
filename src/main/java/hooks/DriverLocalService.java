@@ -27,7 +27,7 @@ public class DriverLocalService {
             return new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES)),
                     new UiAutomator2Options()
                             .setDeviceName(PropertiesDataManager.getProperty("mobile_deviceName", PropertiesDataManager.Capability.MOBILE_CAPABILITIES))
-                            .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\general-store-ecommerce-app-automation\\src\\main\\resources\\app_binaries\\General-Store.apk"));
+                            .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\general-store-ecommerce-hybrid-app-automation\\src\\main\\resources\\app_binaries\\General-Store.apk"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
