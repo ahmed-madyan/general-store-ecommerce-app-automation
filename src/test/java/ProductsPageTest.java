@@ -24,6 +24,9 @@ public class ProductsPageTest extends TestBase {
     public void selectProduct() {
         fillForm();
         Waits.visibilityOfElementLocated(productsToolBar);
+        if (PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES).equals("remote")) {
+            AppiumActions.setPortrait();
+        }
         AppiumActions.scrollIntoView("Air Jordan 9 Retro");
         for (int i = 0; i < ElementActions.findElements(productName).size() - 1; i++) {
             if (ElementActions.findElements(productName).get(i).getText().contains("Air Jordan 9 Retro")) {
@@ -44,8 +47,5 @@ public class ProductsPageTest extends TestBase {
         ElementActions.sendKeys(name_TextFiled, "Ahmed");
         MobileGestures.click(male_RadioBtn);
         MobileGestures.click(letsShop_btn);
-        if (PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES).equals("remote")) {
-            AppiumActions.rotateLeft();
-        }
     }
 }
