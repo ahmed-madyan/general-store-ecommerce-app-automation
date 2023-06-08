@@ -58,6 +58,14 @@ public class AppiumActions {
         }
     }
 
+    public static void rotateCustomAngle(int angle) {
+        try {
+            DriverManager.getDriverInstance().rotate(new DeviceRotation(0, 0, angle));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getToastMessage() {
         String text = null;
         try {
