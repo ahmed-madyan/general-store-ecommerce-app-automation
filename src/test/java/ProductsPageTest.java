@@ -25,7 +25,7 @@ public class ProductsPageTest extends TestBase {
         fillForm();
         Waits.visibilityOfElementLocated(productsToolBar);
         if (PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES).equals("remote")) {
-            AppiumActions.setPortrait();
+            AppiumActions.setPortraitMode();
         }
         AppiumActions.scrollIntoView("Air Jordan 9 Retro");
         for (int i = 0; i < ElementActions.findElements(productName).size() - 1; i++) {
