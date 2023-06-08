@@ -13,7 +13,7 @@ accessKey: efFbRGj4yaxcVuPxyJKs
 # Set 'projectName' to the name of your project. Example, Marketing Website
 projectName: General Store E-commerce App
 # Set `buildName` as the name of the job / testsuite being run
-buildName: Sanity Check build
+buildName: General Store App Sanity Check build
 # `buildIdentifier` is a unique id to differentiate every execution that gets appended to
 # buildName. Choose your buildIdentifier format from the available expressions:
 # ${BUILD_NUMBER} (Default): Generates an incremental counter with every execution
