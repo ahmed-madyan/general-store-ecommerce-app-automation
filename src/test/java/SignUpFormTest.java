@@ -30,7 +30,7 @@ public class SignUpFormTest extends TestBase {
     public void fillForm() {
         MobileGestures.click(country_List);
         String country = ("//android.widget.TextView[@text='{country}']");
-        AppiumActions.scrollIntoView(AppiumBy.xpath(country.replace("{country}", "Egypt")), "Egypt");
+        AppiumActions.scrollIntoView("Egypt");
         MobileGestures.click(AppiumBy.xpath(country.replace("{country}", "Egypt")));
         ElementActions.sendKeys(name_TextFiled, "Ahmed");
         MobileGestures.click(letsShop_btn);

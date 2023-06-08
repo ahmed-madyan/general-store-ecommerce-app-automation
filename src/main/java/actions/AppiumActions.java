@@ -7,7 +7,15 @@ import org.openqa.selenium.DeviceRotation;
 import webdriver_waits.Waits;
 
 public class AppiumActions {
-    public static void scrollIntoView(By elementLocated, String elementText) {
+    public static void scrollIntoView(String elementText) {
+        try {
+            DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void scrollIntoElementView(By elementLocated, String elementText) {
         try {
             DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
             Waits.visibilityOfElementLocated(elementLocated);

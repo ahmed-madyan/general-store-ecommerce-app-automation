@@ -46,7 +46,15 @@ public class MobileGestures {
             e.printStackTrace();
         }
     }
-
+    public static void click(WebElement element) {
+        try {
+            DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) element).getId()
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public static void swipe(By elementLocated, Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
