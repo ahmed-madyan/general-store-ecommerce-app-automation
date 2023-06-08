@@ -25,7 +25,7 @@ public class TestBase {
         }
         Waits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/splashscreen"));
         Assert.assertTrue(ElementActions.findElement(AppiumBy.id("com.androidsample.generalstore:id/splashscreen")).isDisplayed());
-        Waits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop"));
+//        Waits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop"));
     }
 
     @AfterClass(alwaysRun = true)
