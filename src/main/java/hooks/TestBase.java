@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeClass;
 import utilities.reader_manager.properties_reader.ConfigUtils;
 import webdriver_waits.Waits;
 
+import java.time.Duration;
+
 public class TestBase {
     private static AndroidDriver androidDriver;
 
@@ -25,6 +27,7 @@ public class TestBase {
         }
         Waits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/splashscreen"));
         Assert.assertTrue(ElementActions.findElement(AppiumBy.id("com.androidsample.generalstore:id/splashscreen")).isDisplayed());
+        DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterClass(alwaysRun = true)
