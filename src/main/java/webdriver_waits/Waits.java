@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Waits {
-    private static final WebDriverWait webDriverWait = new WebDriverWait(DriverManager.getDriverInstance(), Duration.ofSeconds(50));
+    private static final WebDriverWait webDriverWait = new WebDriverWait(DriverManager.getDriverInstance(), Duration.ofMinutes(1));
 
     public static void visibilityOfElementLocated(By elementLocated) {
         try {
