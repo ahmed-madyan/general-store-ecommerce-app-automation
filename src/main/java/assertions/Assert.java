@@ -1,5 +1,6 @@
 package assertions;
 
+import actions.ElementActions;
 import org.openqa.selenium.By;
 
 public class Assert {
@@ -97,6 +98,24 @@ public class Assert {
         try {
             org.testng.Assert.assertTrue(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
             System.out.println("Element located with {" + elementLocated.toString() + "} is displayed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void assertElementText(By elementLocated, String expectedText) {
+        try {
+            org.testng.Assert.assertEquals(ElementActions.getText(elementLocated), expectedText);
+            System.out.println("Element text located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText + "}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void assertTextToBe(String actualText, String expectedText) {
+        try {
+            org.testng.Assert.assertEquals(actualText, expectedText);
+            System.out.println("Actual text {" + actualText + "} is equals to the expected text {" + expectedText + "}");
         } catch (Exception e) {
             e.printStackTrace();
         }
