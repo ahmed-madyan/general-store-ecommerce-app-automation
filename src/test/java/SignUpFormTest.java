@@ -7,7 +7,7 @@ import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class SignUpTest extends TestBase {
+public class SignUpFormTest extends TestBase {
     private final By country_List = AppiumBy.id("com.androidsample.generalstore:id/spinnerCountry");
     private final By name_TextFiled = AppiumBy.id("com.androidsample.generalstore:id/nameField");
     private final By male_RadioBtn = AppiumBy.id("com.androidsample.generalstore:id/radioMale");
@@ -27,7 +27,7 @@ public class SignUpTest extends TestBase {
     }
 
     @Test(dependsOnMethods = "validateFormElements")
-    public void signUp() {
+    public void fillForm() {
         MobileGestures.click(country_List);
         String country = ("//android.widget.TextView[@text='{country}']");
         AppiumActions.scrollIntoView(AppiumBy.xpath(country.replace("{country}", "Egypt")), "Egypt");
