@@ -1,11 +1,12 @@
-package actions;
+package assertions;
 
+import actions.ElementActions;
 import org.openqa.selenium.By;
 import webdriver_waits.Waits;
 
-public class IsElement {
+public class ElementState {
 
-    public static boolean checkable(By elementLocated) {
+    public static boolean isCheckable(By elementLocated) {
         boolean checkable = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -18,7 +19,7 @@ public class IsElement {
         return checkable;
     }
 
-    public static boolean checked(By elementLocated) {
+    public static boolean isChecked(By elementLocated) {
         boolean checked = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -31,7 +32,7 @@ public class IsElement {
         return checked;
     }
 
-    public static boolean clickable(By elementLocated) {
+    public static boolean isClickable(By elementLocated) {
         boolean clickable = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -44,7 +45,7 @@ public class IsElement {
         return clickable;
     }
 
-    public static boolean enabled(By elementLocated) {
+    public static boolean isEnabled(By elementLocated) {
         boolean enabled = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -57,7 +58,7 @@ public class IsElement {
         return enabled;
     }
 
-    public static boolean focusable(By elementLocated) {
+    public static boolean isFocusable(By elementLocated) {
         boolean focusable = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -70,7 +71,7 @@ public class IsElement {
         return focusable;
     }
 
-    public static boolean focused(By elementLocated) {
+    public static boolean isFocused(By elementLocated) {
         boolean focused = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -83,7 +84,7 @@ public class IsElement {
         return focused;
     }
 
-    public static boolean longClickable(By elementLocated) {
+    public static boolean isLongClickable(By elementLocated) {
         boolean longClickable = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -96,7 +97,7 @@ public class IsElement {
         return longClickable;
     }
 
-    public static boolean password(By elementLocated) {
+    public static boolean isPassword(By elementLocated) {
         boolean password = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -109,7 +110,7 @@ public class IsElement {
         return password;
     }
 
-    public static boolean scrollable(By elementLocated) {
+    public static boolean isScrollable(By elementLocated) {
         boolean scrollable = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
@@ -122,11 +123,11 @@ public class IsElement {
         return scrollable;
     }
 
-    public static boolean selected(By elementLocated) {
+    public static boolean isSelected(By elementLocated) {
         boolean selected = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
-            if (ElementActions.findElement(elementLocated).getAttribute("selected").equals("true")) {
+            if (ElementActions.findElement(elementLocated).isSelected()) {
                 selected = true;
             }
         } catch (Exception e) {
@@ -135,7 +136,7 @@ public class IsElement {
         return selected;
     }
 
-    public static boolean displayed(By elementLocated) {
+    public static boolean isDisplayed(By elementLocated) {
         boolean displayed = false;
         try {
             Waits.visibilityOfElementLocated(elementLocated);

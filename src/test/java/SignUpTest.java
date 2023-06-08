@@ -1,6 +1,6 @@
 import actions.AppiumActions;
 import actions.ElementActions;
-import assertions.Assertion;
+import assertions.HardAssert;
 import hooks.TestBase;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
@@ -16,14 +16,14 @@ public class SignUpTest extends TestBase {
 
     @Test
     public void validateFormElements() {
-        Assertion.assertElementDisplayed(country_List);
-        Assertion.assertElementEnabled(country_List);
-        Assertion.assertElementDisplayed(name_TextFiled);
-        Assertion.assertElementEnabled(name_TextFiled);
-        Assertion.assertElementClickable(name_TextFiled);
-        Assertion.assertElementDisplayed(male_RadioBtn);
-        Assertion.assertElementDisplayed(female_RadioBtn);
-        Assertion.assertElementDisplayed(letsShop_btn);
+        HardAssert.assertElementDisplayed(country_List);
+        HardAssert.assertElementEnabled(country_List);
+        HardAssert.assertElementDisplayed(name_TextFiled);
+        HardAssert.assertElementEnabled(name_TextFiled);
+        HardAssert.assertElementClickable(name_TextFiled);
+        HardAssert.assertElementDisplayed(male_RadioBtn);
+        HardAssert.assertElementDisplayed(female_RadioBtn);
+        HardAssert.assertElementDisplayed(letsShop_btn);
     }
 
     @Test
