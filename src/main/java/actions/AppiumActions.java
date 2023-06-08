@@ -49,4 +49,14 @@ public class AppiumActions {
             e.printStackTrace();
         }
     }
+
+    public static String getToastMessage() {
+        String text = null;
+        try {
+            text = DriverManager.getDriverInstance().findElement(AppiumBy.xpath("(//android.widget.Toast)[1]")).getAttribute("name");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return text;
+    }
 }
