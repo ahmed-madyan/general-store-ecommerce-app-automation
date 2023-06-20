@@ -15,7 +15,7 @@ public class DriverInitializer {
     private static AndroidDriver androidDriver;
 
     @BeforeClass(alwaysRun = true)
-    private void initDriver() {
+    private void initializeDriver() {
         PropertiesConfigurations.setConfigProperties();
         switch (PropertiesConfigurations.getExecution_Platform()) {
             case "local" -> setDriver(DriverLocalServiceInitializer.localServiceInitialization());
