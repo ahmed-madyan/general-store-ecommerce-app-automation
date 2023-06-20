@@ -1,5 +1,6 @@
-package assertions;
+package validations;
 
+import actions.ElementState;
 import org.openqa.selenium.By;
 
 public class Verify {

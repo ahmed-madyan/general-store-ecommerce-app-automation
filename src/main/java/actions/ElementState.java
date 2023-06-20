@@ -1,4 +1,4 @@
-package assertions;
+package actions;
 
 import actions.ElementActions;
 import org.openqa.selenium.By;

@@ -1,6 +1,6 @@
 import actions.AppiumActions;
 import actions.ElementActions;
-import assertions.Assert;
+import validations.Assert;
 import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
