@@ -1,13 +1,13 @@
 import actions.AppiumActions;
 import actions.ElementActions;
 import assertions.Assert;
-import hooks.TestBase;
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class SignUpFormTest extends TestBase {
+public class SignUpFormTest extends DriverInitializer {
     private final By country_List = AppiumBy.id("com.androidsample.generalstore:id/spinnerCountry");
     private final By name_TextFiled = AppiumBy.id("com.androidsample.generalstore:id/nameField");
     private final By male_RadioBtn = AppiumBy.id("com.androidsample.generalstore:id/radioMale");

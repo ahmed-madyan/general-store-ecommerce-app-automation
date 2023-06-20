@@ -1,7 +1,7 @@
 package mobile_gestures;
 
 import com.google.common.collect.ImmutableMap;
-import hooks.DriverManager;
+import driver_manager.DriverManager;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

@@ -1,4 +1,4 @@
-package hooks;
+package driver_manager;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
-public class BrowserStackConfig {
+public class BrowserStackInitializer {
     private static final String browserStack_ServerURL =
             ("https://" + PropertiesDataManager.getProperty(
                     "username", PropertiesDataManager.Capability.BROWSERSTACK_CAPABILITIES) + ":" +

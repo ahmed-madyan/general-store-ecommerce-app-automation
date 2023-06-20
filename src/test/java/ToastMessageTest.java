@@ -1,12 +1,12 @@
 import actions.AppiumActions;
 import assertions.Assert;
-import hooks.TestBase;
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class ToastMessageTest extends TestBase {
+public class ToastMessageTest extends DriverInitializer {
     private final By letsShop_btn = AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop");
 
     @Test

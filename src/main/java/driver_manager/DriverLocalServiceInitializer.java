@@ -1,4 +1,4 @@
-package hooks;
+package driver_manager;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -10,10 +10,10 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DriverLocalService {
+public class DriverLocalServiceInitializer {
     private static AppiumDriverLocalService appiumService;
 
-    protected static AndroidDriver localServiceInitialization() {
+    static AndroidDriver localServiceInitialization() {
         //Build the Appium service
         AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder()
                 .withAppiumJS(new File("C:\\Users\\_VOIS\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))

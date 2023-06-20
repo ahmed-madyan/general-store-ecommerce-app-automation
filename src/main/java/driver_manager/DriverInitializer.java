@@ -1,4 +1,4 @@
-package hooks;
+package driver_manager;
 
 import actions.ElementActions;
 import io.appium.java_client.AppiumBy;
@@ -11,15 +11,15 @@ import webdriver_waits.Waits;
 
 import java.time.Duration;
 
-public class TestBase {
+public class DriverInitializer {
     private static AndroidDriver androidDriver;
 
     @BeforeClass(alwaysRun = true)
-    protected void initDriver() {
+    private void initDriver() {
         ConfigUtils.setConfigProperties();
         switch (ConfigUtils.getExecution_Platform()) {
-            case "local" -> setAndroidDriver(DriverLocalService.localServiceInitialization());
-            case "remote" -> setAndroidDriver(BrowserStackConfig.browserStackInitialization());
+            case "local" -> setDriver(DriverLocalServiceInitializer.localServiceInitialization());
+            case "remote" -> setDriver(BrowserStackInitializer.browserStackInitialization());
             default -> {
                 System.out.println("Kindly set the execution platform address.");
                 throw new RuntimeException();
@@ -31,12 +31,12 @@ public class TestBase {
     }
 
     @AfterClass(alwaysRun = true)
-    protected void tearDownDriver() {
+    private void tearDownDriver() {
         //Tear the driver instance down
         DriverManager.quitDriver();
         if (ConfigUtils.getExecution_Platform().equals("local")) {
             //Stop the server with the builder
-            DriverLocalService.localServiceTermination();
+            DriverLocalServiceInitializer.localServiceTermination();
         }
     }
 
@@ -44,7 +44,7 @@ public class TestBase {
         return androidDriver;
     }
 
-    public static void setAndroidDriver(AndroidDriver androidDriver) {
-        TestBase.androidDriver = androidDriver;
+    private static void setDriver(AndroidDriver androidDriver) {
+        DriverInitializer.androidDriver = androidDriver;
     }
 }

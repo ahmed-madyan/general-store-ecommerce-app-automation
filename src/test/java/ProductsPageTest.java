@@ -1,7 +1,7 @@
 import actions.AppiumActions;
 import actions.ElementActions;
 import assertions.Assert;
-import hooks.TestBase;
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import utilities.reader_manager.properties_reader.PropertiesDataManager;
 import webdriver_waits.Waits;
 
-public class ProductsPageTest extends TestBase {
+public class ProductsPageTest extends DriverInitializer {
     private final By productsToolBar = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
     private final By productName = AppiumBy.id("com.androidsample.generalstore:id/productName");
     private final By addToCard = AppiumBy.id("com.androidsample.generalstore:id/productAddCart");
