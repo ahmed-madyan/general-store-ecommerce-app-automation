@@ -1,6 +1,6 @@
 package utilities.reader_manager.properties_reader;
 
-public class ConfigUtils {
+public class PropertiesConfigurations {
     private static String baseURI_ST;
     private static String baseURI_SIT;
     private static String fireBase_URI;
@@ -26,7 +26,7 @@ public class ConfigUtils {
     }
 
     private static void setBaseURI_ST(String baseURI_ST) {
-        ConfigUtils.baseURI_ST = baseURI_ST;
+        PropertiesConfigurations.baseURI_ST = baseURI_ST;
     }
 
     public static String getBaseURI_SIT() {
@@ -34,7 +34,7 @@ public class ConfigUtils {
     }
 
     private static void setBaseURI_SIT(String baseURI_SIT) {
-        ConfigUtils.baseURI_SIT = baseURI_SIT;
+        PropertiesConfigurations.baseURI_SIT = baseURI_SIT;
     }
 
     public static String getFireBase_URI() {
@@ -42,7 +42,7 @@ public class ConfigUtils {
     }
 
     public static void setFireBase_URI(String fireBase_URI) {
-        ConfigUtils.fireBase_URI = fireBase_URI;
+        PropertiesConfigurations.fireBase_URI = fireBase_URI;
     }
 
     public static String getFireBase_API_Key() {
@@ -50,7 +50,7 @@ public class ConfigUtils {
     }
 
     public static void setFireBase_API_Key(String fireBase_API_Key) {
-        ConfigUtils.fireBase_API_Key = fireBase_API_Key;
+        PropertiesConfigurations.fireBase_API_Key = fireBase_API_Key;
     }
 
     public static String getExecution_Platform() {
@@ -58,7 +58,7 @@ public class ConfigUtils {
     }
 
     public static void setExecution_Platform(String execution_Platform) {
-        ConfigUtils.execution_Platform = execution_Platform;
+        PropertiesConfigurations.execution_Platform = execution_Platform;
     }
 
     public static String getTargetRemoteExecution() {
@@ -66,6 +66,6 @@ public class ConfigUtils {
     }
 
     public static void setTargetRemoteExecution(String targetRemoteExecution) {
-        ConfigUtils.targetRemoteExecution = targetRemoteExecution;
+        PropertiesConfigurations.targetRemoteExecution = targetRemoteExecution;
     }
 }

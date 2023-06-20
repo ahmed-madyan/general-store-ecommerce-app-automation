@@ -4,7 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import utilities.reader_manager.properties_reader.ConfigUtils;
+import utilities.reader_manager.properties_reader.PropertiesConfigurations;
 import utilities.reader_manager.properties_reader.PropertiesDataManager;
 
 import java.net.MalformedURLException;
@@ -22,7 +22,7 @@ public class BrowserStackInitializer {
     private static AndroidDriver androidDriver;
 
     protected static AndroidDriver browserStackInitialization() {
-        switch (ConfigUtils.getTargetRemoteExecution()) {
+        switch (PropertiesConfigurations.getTargetRemoteExecution()) {
             case "manual" -> setupManually();
             case "yml" -> setupYML();
             default -> {

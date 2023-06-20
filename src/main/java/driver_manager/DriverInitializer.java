@@ -6,7 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import utilities.reader_manager.properties_reader.ConfigUtils;
+import utilities.reader_manager.properties_reader.PropertiesConfigurations;
 import driver_waits.Wait;
 
 import java.time.Duration;
@@ -16,8 +16,8 @@ public class DriverInitializer {
 
     @BeforeClass(alwaysRun = true)
     private void initDriver() {
-        ConfigUtils.setConfigProperties();
-        switch (ConfigUtils.getExecution_Platform()) {
+        PropertiesConfigurations.setConfigProperties();
+        switch (PropertiesConfigurations.getExecution_Platform()) {
             case "local" -> setDriver(DriverLocalServiceInitializer.localServiceInitialization());
             case "remote" -> setDriver(BrowserStackInitializer.browserStackInitialization());
             default -> {
@@ -34,7 +34,7 @@ public class DriverInitializer {
     private void tearDownDriver() {
         //Tear the driver instance down
         DriverManager.quitDriver();
-        if (ConfigUtils.getExecution_Platform().equals("local")) {
+        if (PropertiesConfigurations.getExecution_Platform().equals("local")) {
             //Stop the server with the builder
             DriverLocalServiceInitializer.localServiceTermination();
         }
