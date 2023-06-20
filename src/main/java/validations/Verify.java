@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 public class Verify {
-    static SoftAssert softAssert = new org.testng.asserts.SoftAssert();
+    static SoftAssert softAssert = new SoftAssert();
 
     public static void assertElementCheckable(By elementLocated) {
         try {
