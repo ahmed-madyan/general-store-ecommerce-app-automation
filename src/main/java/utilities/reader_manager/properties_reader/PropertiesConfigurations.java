@@ -17,8 +17,8 @@ public class PropertiesConfigurations {
         setTargetRemoteExecution(PropertiesDataManager.getProperty("targetRemoteExecution", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES));
     }
 
-    public static void getCapability(String capability, String filePath) {
-        PropertiesDataManager.getProperty(capability, filePath);
+    public static String getCapability(String capability, String filePath) {
+        return PropertiesDataManager.getProperty(capability, filePath);
     }
 
     public static String getBaseURI_ST() {
