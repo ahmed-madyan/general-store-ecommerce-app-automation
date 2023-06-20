@@ -13,7 +13,7 @@ import java.net.URL;
 public class DriverLocalServiceInitializer {
     private static AppiumDriverLocalService appiumService;
 
-    static AndroidDriver localServiceInitialization() {
+    protected static AndroidDriver localServiceInitialization() {
         //Build the Appium service
         AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder()
                 .withAppiumJS(new File("C:\\Users\\_VOIS\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
