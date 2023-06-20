@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.ScreenOrientation;
-import webdriver_waits.Waits;
+import driver_waits.Waits;
 
 public class AppiumActions {
     public static void scrollIntoView(String elementText) {

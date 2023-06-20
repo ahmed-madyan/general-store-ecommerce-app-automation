@@ -4,7 +4,7 @@ import driver_manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import webdriver_waits.Waits;
+import driver_waits.Waits;
 
 import java.util.List;
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import actions.ElementActions;
-import webdriver_waits.Waits;
+import driver_waits.Waits;
 
 public class MobileGestures {
 

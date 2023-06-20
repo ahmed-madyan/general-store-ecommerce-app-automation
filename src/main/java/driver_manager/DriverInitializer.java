@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utilities.reader_manager.properties_reader.ConfigUtils;
-import webdriver_waits.Waits;
+import driver_waits.Waits;
 
 import java.time.Duration;
 

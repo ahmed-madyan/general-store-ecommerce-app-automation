@@ -1,4 +1,4 @@
-package webdriver_waits;
+package driver_waits;
 
 import driver_manager.DriverManager;
 import org.openqa.selenium.By;

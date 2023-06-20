@@ -2,7 +2,7 @@ package assertions;
 
 import actions.ElementActions;
 import org.openqa.selenium.By;
-import webdriver_waits.Waits;
+import driver_waits.Waits;
 
 public class ElementState {
 
