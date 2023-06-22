@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utilities.reader_manager.properties_reader.PropertiesConfigurations;
-import driver_waits.Wait;
+import driver_waits.FluentWaits;
 
 import java.time.Duration;
 
@@ -26,7 +26,7 @@ public class DriverInitializer {
                 throw new RuntimeException();
             }
         }
-        Wait.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/splashscreen"));
+        FluentWaits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/splashscreen"));
         Assert.assertTrue(ElementActions.findElement(AppiumBy.id("com.androidsample.generalstore:id/splashscreen")).isDisplayed());
         DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }

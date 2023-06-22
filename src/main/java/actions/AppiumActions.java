@@ -1,11 +1,11 @@
 package actions;
 
 import driver_manager.DriverManager;
+import driver_waits.FluentWaits;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.ScreenOrientation;
-import driver_waits.Wait;
 
 public class AppiumActions {
     public static void scrollIntoView(String elementText) {
@@ -19,7 +19,7 @@ public class AppiumActions {
     public static void scrollIntoElementView(By elementLocated, String elementText) {
         try {
             DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,10 +1,10 @@
 package actions;
 
 import driver_manager.DriverManager;
+import driver_waits.FluentWaits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import driver_waits.Wait;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class ElementActions {
     public static WebElement findElement(By elementLocated) {
         WebElement element = null;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             element = DriverManager.getDriverInstance().findElement(elementLocated);
         } catch (Exception e) {
             e.printStackTrace();
@@ -24,7 +24,7 @@ public class ElementActions {
     public static List<WebElement> findElements(By elementLocated) {
         List<WebElement> element = null;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             element = DriverManager.getDriverInstance().findElements(elementLocated);
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class ElementActions {
     public static String getText(By elementLocated) {
         String elementText = null;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             elementText = findElement(elementLocated).getText();
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class ElementActions {
     public static String getAttribute(By elementLocated, String attribute) {
         String attributeValue = null;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             attributeValue = findElement(elementLocated).getAttribute(attribute);
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class ElementActions {
         int rightLocationX;
         int middleLocationX = 0;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             leftLocationX = getElementLocationX(elementLocated);
             rightLocationX = getElementWidth(elementLocated);
             middleLocationX = ((leftLocationX + rightLocationX) / 2);
@@ -94,7 +94,7 @@ public class ElementActions {
         int lowerLocationY;
         int middleLocationY = 0;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             upperLocationY = getElementLocationY(elementLocated);
             lowerLocationY = getElementHeight(elementLocated);
             middleLocationY = ((upperLocationY + lowerLocationY) / 2);
@@ -111,7 +111,7 @@ public class ElementActions {
     public static int getElementLocationX(By elementLocated) {
         int elementLocationX = 0;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             elementLocationX = findElement(elementLocated).getLocation().getX();
             System.out.println("Element Location X: " + elementLocationX);
         } catch (Exception e) {
@@ -123,7 +123,7 @@ public class ElementActions {
     public static int getElementWidth(By elementLocated) {
         int elementWidth = 0;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             elementWidth = findElement(elementLocated).getSize().getWidth();
             System.out.println("Element width: " + elementWidth);
         } catch (Exception e) {
@@ -135,7 +135,7 @@ public class ElementActions {
     public static int getElementLocationY(By elementLocated) {
         int elementLocationY = 0;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             elementLocationY = findElement(elementLocated).getLocation().getY();
             System.out.println("Element Location Y: " + elementLocationY);
         } catch (Exception e) {
@@ -147,7 +147,7 @@ public class ElementActions {
     public static int getElementHeight(By elementLocated) {
         int elementHeight = 0;
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             elementHeight = findElement(elementLocated).getSize().getHeight();
             System.out.println("Element height: " + elementHeight);
         } catch (Exception e) {
@@ -158,7 +158,7 @@ public class ElementActions {
 
     public static void selectByVisibleText(By elementLocated,String visibleText) {
         try {
-            Wait.visibilityOfElementLocated(elementLocated);
+            FluentWaits.visibilityOfElementLocated(elementLocated);
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
         } catch (Exception e) {
             e.printStackTrace();

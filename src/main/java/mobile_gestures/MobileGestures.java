@@ -1,20 +1,20 @@
 package mobile_gestures;
 
+import actions.ElementActions;
 import com.google.common.collect.ImmutableMap;
 import driver_manager.DriverManager;
+import driver_waits.FluentWaits;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
-import actions.ElementActions;
-import driver_waits.Wait;
 
 public class MobileGestures {
 
     public static void longClick(AndroidDriver driver, By elementLocated, int duration) {
-        Wait.elementToBeClickable(elementLocated);
+        FluentWaits.elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
@@ -26,7 +26,7 @@ public class MobileGestures {
     }
 
     public static void doubleClick(AndroidDriver driver, By elementLocated) {
-        Wait.elementToBeClickable(elementLocated);
+        FluentWaits.elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) driver).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
@@ -37,7 +37,7 @@ public class MobileGestures {
     }
 
     public static void click(By elementLocated) {
-        Wait.elementToBeClickable(elementLocated);
+        FluentWaits.elementToBeClickable(elementLocated);
         try {
             DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
@@ -116,7 +116,7 @@ public class MobileGestures {
     }
 
     public static void drag(By elementLocated, int xEndCoordinate, int yEndCoordinate) {
-        Wait.elementToBeClickable(elementLocated);
+        FluentWaits.elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),

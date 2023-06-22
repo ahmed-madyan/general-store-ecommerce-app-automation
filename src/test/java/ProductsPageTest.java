@@ -7,7 +7,7 @@ import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import utilities.reader_manager.properties_reader.PropertiesDataManager;
-import driver_waits.Wait;
+import driver_waits.FluentWaits;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By productsToolBar = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -23,7 +23,7 @@ public class ProductsPageTest extends DriverInitializer {
     @Test
     public void selectProduct() {
         fillForm();
-        Wait.visibilityOfElementLocated(productsToolBar);
+        FluentWaits.visibilityOfElementLocated(productsToolBar);
         if (PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES).equals("remote")) {
             AppiumActions.setPortraitMode();
         }
