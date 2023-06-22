@@ -1,11 +1,10 @@
-package validations;
+package assertions;
 
 import actions.ElementState;
 import org.openqa.selenium.By;
-import org.testng.asserts.SoftAssert;
 
-public class Verify {
-    static SoftAssert softAssert = new SoftAssert();
+public class SoftAssert {
+    static org.testng.asserts.SoftAssert softAssert = new org.testng.asserts.SoftAssert();
 
     public static void assertElementCheckable(By elementLocated) {
         try {

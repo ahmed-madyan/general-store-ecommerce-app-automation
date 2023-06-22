@@ -1,10 +1,10 @@
-package validations;
+package assertions;
 
 import actions.ElementActions;
 import actions.ElementState;
 import org.openqa.selenium.By;
 
-public class Assert {
+public class HardAssert {
     public static void assertElementCheckable(By elementLocated) {
         try {
             org.testng.Assert.assertTrue(ElementState.isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");

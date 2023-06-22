@@ -1,6 +1,6 @@
 import actions.AppiumActions;
 import actions.ElementActions;
-import validations.Assert;
+import assertions.HardAssert;
 import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
@@ -16,14 +16,14 @@ public class SignUpFormTest extends DriverInitializer {
 
     @Test
     public void validateFormElements() {
-        Assert.assertElementDisplayed(country_List);
-        Assert.assertElementEnabled(country_List);
-        Assert.assertElementDisplayed(name_TextFiled);
-        Assert.assertElementEnabled(name_TextFiled);
-        Assert.assertElementClickable(name_TextFiled);
-        Assert.assertElementDisplayed(male_RadioBtn);
-        Assert.assertElementDisplayed(female_RadioBtn);
-        Assert.assertElementDisplayed(letsShop_btn);
+        HardAssert.assertElementDisplayed(country_List);
+        HardAssert.assertElementEnabled(country_List);
+        HardAssert.assertElementDisplayed(name_TextFiled);
+        HardAssert.assertElementEnabled(name_TextFiled);
+        HardAssert.assertElementClickable(name_TextFiled);
+        HardAssert.assertElementDisplayed(male_RadioBtn);
+        HardAssert.assertElementDisplayed(female_RadioBtn);
+        HardAssert.assertElementDisplayed(letsShop_btn);
     }
 
     @Test(dependsOnMethods = "validateFormElements")
