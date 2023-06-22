@@ -122,4 +122,22 @@ public class Assert {
             e.printStackTrace();
         }
     }
+
+    public static void assertAttributeToBe(String attribute, boolean expected) {
+        try {
+            new Assertion().assertEquals(attribute, expected);
+            System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void assertAttributeToBe(String attribute, String expected) {
+        try {
+            new Assertion().assertEquals(attribute, expected);
+            System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
