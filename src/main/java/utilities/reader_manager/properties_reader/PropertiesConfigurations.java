@@ -9,10 +9,6 @@ public class PropertiesConfigurations {
     private static String targetRemoteExecution;
 
     public static void setConfigProperties() {
-//        setBaseURI_ST(PropertiesDataManager.getProperty("URI_ST", EXECUTION_CONFIG_FILE_PATH));
-//        setBaseURI_SIT(PropertiesDataManager.getProperty("URI_SIT", EXECUTION_CONFIG_FILE_PATH));
-//        setFireBase_URI(PropertiesDataManager.getProperty("FireBase_URI", EXECUTION_CONFIG_FILE_PATH));
-//        setFireBase_API_Key(PropertiesDataManager.getProperty("FireBase_API_Key", EXECUTION_CONFIG_FILE_PATH));
         setExecution_Platform(PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES));
         setTargetRemoteExecution(PropertiesDataManager.getProperty("targetRemoteExecution", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES));
     }

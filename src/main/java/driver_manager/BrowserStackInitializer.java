@@ -13,8 +13,9 @@ import java.util.HashMap;
 
 public class BrowserStackInitializer {
     private static final String browserStack_ServerURL =
-            ("https://" + PropertiesDataManager.getProperty(
-                    "username", PropertiesDataManager.Capability.BROWSERSTACK_CAPABILITIES) + ":" +
+            ("https://" +
+                    PropertiesDataManager.getProperty("username", PropertiesDataManager.Capability.BROWSERSTACK_CAPABILITIES) +
+                    ":" +
                     PropertiesDataManager.getProperty("accessKey", PropertiesDataManager.Capability.BROWSERSTACK_CAPABILITIES) +
                     "@hub-cloud.browserstack.com/wd/hub");
     private static final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -22,6 +23,7 @@ public class BrowserStackInitializer {
     private static AndroidDriver androidDriver;
 
     protected static AndroidDriver browserStackInitialization() {
+        System.out.println("TargetRemoteExecution: " + PropertiesConfigurations.getTargetRemoteExecution());
         switch (PropertiesConfigurations.getTargetRemoteExecution()) {
             case "manual" -> setupManually();
             case "yml" -> setupYML();

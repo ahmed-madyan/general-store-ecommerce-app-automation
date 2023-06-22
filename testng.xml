@@ -4,9 +4,9 @@
 <suite name="Regression Test Suite">
     <test name="Regression Test">
         <classes>
-<!--            <class name="SignUpFormTest"/>-->
+            <class name="SignUpFormTest"/>
 <!--            <class name="ToastMessageTest"/>-->
-            <class name="ProductsPageTest"/>
+<!--            <class name="ProductsPageTest"/>-->
         </classes>
     </test>
 </suite>

@@ -15,8 +15,9 @@ public class DriverInitializer {
     private static AndroidDriver androidDriver;
 
     @BeforeClass(alwaysRun = true)
-    private void initializeDriver() {
+    protected void initializeDriver() {
         PropertiesConfigurations.setConfigProperties();
+        System.out.println("Execution Platform: " + PropertiesConfigurations.getExecution_Platform());
         switch (PropertiesConfigurations.getExecution_Platform()) {
             case "local" -> setDriver(DriverLocalServiceInitializer.localServiceInitialization());
             case "remote" -> setDriver(BrowserStackInitializer.browserStackInitialization());
@@ -31,7 +32,7 @@ public class DriverInitializer {
     }
 
     @AfterClass(alwaysRun = true)
-    private void tearDownDriver() {
+    protected void tearDownDriver() {
         //Tear the driver instance down
         DriverManager.quitDriver();
         if (PropertiesConfigurations.getExecution_Platform().equals("local")) {
