@@ -1,6 +1,6 @@
 import actions.AppiumActions;
 import actions.ElementActions;
-import assertions.HardAssert;
+import assertions.Assert;
 import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
@@ -35,7 +35,7 @@ public class ProductsPageTest extends DriverInitializer {
             }
         }
         MobileGestures.click(cart);
-        HardAssert.assertElementText(AppiumBy.id("com.androidsample.generalstore:id/productName"), "Air Jordan 9 Retro");
+        Assert.assertElementText(AppiumBy.id("com.androidsample.generalstore:id/productName"), "Air Jordan 9 Retro");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
