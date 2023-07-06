@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import java.time.Duration;
 
 public class FluentWaits {
-    //    private static FluentWait wait = new FluentWait(DriverManager.getDriverInstance());
     private static final FluentWait<WebDriver> wait = new FluentWait<WebDriver>(DriverManager.getDriverInstance())
             .withTimeout(Duration.ofSeconds(60))
             .pollingEvery(Duration.ofSeconds(5))
