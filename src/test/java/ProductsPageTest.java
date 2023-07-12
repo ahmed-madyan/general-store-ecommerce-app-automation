@@ -2,12 +2,11 @@ import actions.AppiumActions;
 import actions.ElementActions;
 import assertions.Assert;
 import driver_manager.DriverInitializer;
+import driver_waits.FluentWaits;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import utilities.reader_manager.properties_reader.PropertiesDataManager;
-import driver_waits.FluentWaits;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By productsToolBar = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -21,27 +20,17 @@ public class ProductsPageTest extends DriverInitializer {
     private final By letsShop_btn = AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop");
 
     @Test
-    public void selectProduct() {
+    public void selectProduct() throws InterruptedException {
         fillForm();
         FluentWaits.visibilityOfElementLocated(productsToolBar);
-        if (PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES).equals("remote")) {
-            AppiumActions.setPortraitMode();
-        }
         AppiumActions.scrollIntoView("Air Jordan 9 Retro");
-        for (int i = 0; i < ElementActions.findElements(productName).size() - 1; i++) {
-            if (ElementActions.findElements(productName).get(i).getText().contains("Air Jordan 9 Retro")) {
-//                AppiumActions.scrollIntoView("ADD TO CART");
-                MobileGestures.click(ElementActions.findElements(addToCard).get(i));
-            }
-        }
+        MobileGestures.scrollWithCoordinates(MobileGestures.Direction.DOWN);
+        ElementActions.click(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='Air Jordan 9 Retro']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         MobileGestures.click(cart);
         Assert.assertElementText(AppiumBy.id("com.androidsample.generalstore:id/productName"), "Air Jordan 9 Retro");
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Thread.sleep(10000);
     }
+
 
     public void fillForm() {
         ElementActions.sendKeys(name_TextFiled, "Ahmed");
