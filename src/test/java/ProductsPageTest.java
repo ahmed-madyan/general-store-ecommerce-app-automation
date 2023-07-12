@@ -28,7 +28,6 @@ public class ProductsPageTest extends DriverInitializer {
         ElementActions.click(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='Air Jordan 9 Retro']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         MobileGestures.click(cart);
         Assert.assertElementText(AppiumBy.id("com.androidsample.generalstore:id/productName"), "Air Jordan 9 Retro");
-        Thread.sleep(10000);
     }
 
 
