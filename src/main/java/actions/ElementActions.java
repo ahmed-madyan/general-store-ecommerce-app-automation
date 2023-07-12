@@ -3,6 +3,7 @@ package actions;
 import driver_manager.DriverManager;
 import driver_waits.FluentWaits;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -156,10 +157,19 @@ public class ElementActions {
         return elementHeight;
     }
 
-    public static void selectByVisibleText(By elementLocated,String visibleText) {
+    public static void selectByVisibleText(By elementLocated, String visibleText) {
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void highlightElementLocated(By elementLocated) {
+        try {
+            FluentWaits.visibilityOfElementLocated(elementLocated);
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));
         } catch (Exception e) {
             e.printStackTrace();
         }

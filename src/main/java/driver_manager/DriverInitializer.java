@@ -28,7 +28,6 @@ public class DriverInitializer {
         }
         FluentWaits.visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/splashscreen"));
         Assert.assertTrue(ElementActions.findElement(AppiumBy.id("com.androidsample.generalstore:id/splashscreen")).isDisplayed());
-        DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterClass(alwaysRun = true)

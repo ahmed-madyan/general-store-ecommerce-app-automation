@@ -25,11 +25,11 @@ public class MobileGestures {
         }
     }
 
-    public static void doubleClick(AndroidDriver driver, By elementLocated) {
+    public static void doubleClick(By elementLocated) {
         FluentWaits.elementToBeClickable(elementLocated);
         try {
-            ((JavascriptExecutor) driver).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,6 +113,19 @@ public class MobileGestures {
             e.printStackTrace();
         }
         return canScrollMore;
+    }
+
+    public static void scrollWithCoordinates(Direction direction) {
+        try {
+
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 200, "height", 200,
+                    "direction", direction.toString(),
+                    "percent", 3.0
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void drag(By elementLocated, int xEndCoordinate, int yEndCoordinate) {
