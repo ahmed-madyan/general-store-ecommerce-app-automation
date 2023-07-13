@@ -98,6 +98,9 @@ testObservability: true
 # ===================
 automationName: UIAutomator2
 appiumVersion: 2.0.0
-
+# ===================
+# Device settings
+# ===================
 deviceOrientation: portrait
+acceptInsecureCerts: true
 acceptSslCert: true
