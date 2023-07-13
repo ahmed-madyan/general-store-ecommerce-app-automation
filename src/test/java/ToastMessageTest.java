@@ -1,4 +1,4 @@
-import actions.AppiumActions;
+import actions.MobileActions;
 import assertions.Assert;
 import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
@@ -12,6 +12,6 @@ public class ToastMessageTest extends DriverInitializer {
     @Test
     public void validateToastMessage() {
         MobileGestures.click(letsShop_btn);
-        Assert.assertTextToBe(AppiumActions.getToastMessage(), "Please enter your name");
+        Assert.assertTextToBe(MobileActions.getToastMessage(), "Please enter your name");
     }
 }

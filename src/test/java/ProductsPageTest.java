@@ -1,4 +1,4 @@
-import actions.AppiumActions;
+import actions.MobileActions;
 import actions.ElementActions;
 import assertions.Assert;
 import driver_manager.DriverInitializer;
@@ -7,6 +7,7 @@ import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import utilities.reader_manager.properties_reader.PropertiesConfigurations;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By productsToolBar = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -23,13 +24,14 @@ public class ProductsPageTest extends DriverInitializer {
     public void selectProduct() throws InterruptedException {
         fillForm();
         FluentWaits.visibilityOfElementLocated(productsToolBar);
-        AppiumActions.scrollIntoView("Air Jordan 9 Retro");
-        MobileGestures.scrollWithCoordinates(MobileGestures.Direction.DOWN);
-        ElementActions.click(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='Air Jordan 9 Retro']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
+        MobileActions.scrollIntoView("Air Jordan 9 Retro");
+        if (PropertiesConfigurations.getExecution_Platform().equalsIgnoreCase("local")) {
+            MobileGestures.scrollWithCoordinates(MobileGestures.Direction.DOWN);
+        }
+        MobileGestures.click(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='Air Jordan 9 Retro']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         MobileGestures.click(cart);
         Assert.assertElementText(AppiumBy.id("com.androidsample.generalstore:id/productName"), "Air Jordan 9 Retro");
     }
-
 
     public void fillForm() {
         ElementActions.sendKeys(name_TextFiled, "Ahmed");

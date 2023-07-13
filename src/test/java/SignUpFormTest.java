@@ -1,4 +1,4 @@
-import actions.AppiumActions;
+import actions.MobileActions;
 import actions.ElementActions;
 import assertions.Assert;
 import driver_manager.DriverInitializer;
@@ -30,7 +30,7 @@ public class SignUpFormTest extends DriverInitializer {
     public void fillForm() {
         MobileGestures.click(country_List);
         String country = ("//android.widget.TextView[@text='{country}']");
-        AppiumActions.scrollIntoView("Egypt");
+        MobileActions.scrollIntoView("Egypt");
         MobileGestures.click(AppiumBy.xpath(country.replace("{country}", "Egypt")));
         ElementActions.sendKeys(name_TextFiled, "Ahmed");
         MobileGestures.click(letsShop_btn);
