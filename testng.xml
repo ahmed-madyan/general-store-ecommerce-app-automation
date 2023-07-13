@@ -5,8 +5,8 @@
     <test name="Regression Test">
         <classes>
             <class name="SignUpFormTest"/>
-<!--            <class name="ToastMessageTest"/>-->
-<!--            <class name="ProductsPageTest"/>-->
+            <class name="ToastMessageTest"/>
+            <class name="ProductsPageTest"/>
         </classes>
     </test>
 </suite>
