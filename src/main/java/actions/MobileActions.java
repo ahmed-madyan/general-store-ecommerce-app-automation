@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.ScreenOrientation;
 
-public class AppiumActions {
+public class MobileActions {
     public static void startActivity(String appPackage, String appActivity) {
         try {
             DriverManager.getDriverInstance().startActivity(new Activity(appPackage.trim(), appActivity.trim()));

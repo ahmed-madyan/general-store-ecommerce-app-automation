@@ -166,7 +166,7 @@ public class ElementActions {
         }
     }
 
-    public static void highlightElementLocated(By elementLocated) {
+    public static void highlightWebElementLocated(By elementLocated) {
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));
