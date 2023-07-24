@@ -17,16 +17,16 @@ public class DriverLocalServiceInitializer {
         //Build the Appium service
         AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder()
                 .withAppiumJS(new File("C:\\Users\\_VOIS\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-                .withIPAddress(PropertiesDataManager.getProperty("executionIPAddress", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES))
-                .usingPort(Integer.parseInt(PropertiesDataManager.getProperty("executionPort", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES)));
+                .withIPAddress(PropertiesDataManager.getProperty("executionIPAddress", PropertiesDataManager.Capability.EXECUTION))
+                .usingPort(Integer.parseInt(PropertiesDataManager.getProperty("executionPort", PropertiesDataManager.Capability.EXECUTION)));
         //Start the server with the builder
         appiumService = AppiumDriverLocalService.buildService(serviceBuilder);
         appiumService.start();
         //Initialize the driver and launch the app
         try {
-            return new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES)),
+            return new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.EXECUTION)),
                     new UiAutomator2Options()
-                            .setDeviceName(PropertiesDataManager.getProperty("mobile_deviceName", PropertiesDataManager.Capability.MOBILE_CAPABILITIES))
+                            .setDeviceName(PropertiesDataManager.getProperty("mobile_deviceName", PropertiesDataManager.Capability.MOBILE))
                             .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\general-store-ecommerce-hybrid-app-automation\\src\\main\\resources\\app_binaries\\General-Store.apk"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
