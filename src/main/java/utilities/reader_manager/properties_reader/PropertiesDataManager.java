@@ -9,9 +9,9 @@ import java.util.Properties;
 public class PropertiesDataManager {
     private static final String PROJECT_PATH = System.getProperty("user.dir");
     private static final Properties properties = new Properties();
-    private static final String BROWSERSTACK_CAPABILITIES_PATH = ("/src/main/resources/properties_configurations/BrowserStackCapabilities.properties");
-    private static final String EXECUTION_CAPABILITIES_PATH = ("/src/main/resources/properties_configurations/ExecutionPlatform.properties");
-    private static final String MOBILE_CAPABILITIES_PATH = ("/src/main/resources/properties_configurations/MobileCapabilities.properties");
+    private static final String BROWSERSTACK_CAPABILITIES_PATH = ("/src/main/resources/properties/BrowserStackCapabilities.properties");
+    private static final String EXECUTION_CAPABILITIES_PATH = ("/src/main/resources/properties/ExecutionPlatform.properties");
+    private static final String MOBILE_CAPABILITIES_PATH = ("/src/main/resources/properties/MobileCapabilities.properties");
 
     private static Properties readProperties(String filePathContentRoot) {
         try {
