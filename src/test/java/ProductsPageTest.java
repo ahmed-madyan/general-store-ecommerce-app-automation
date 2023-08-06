@@ -20,6 +20,8 @@ public class ProductsPageTest extends DriverInitializer {
     private final By NAME_TEXT_BOX = AppiumBy.id("com.androidsample.generalstore:id/nameField");
     private final By LETS_SHOP_BUTTON = AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop");
     private final By TOTAL_AMOUNT_TEXT = AppiumBy.id("com.androidsample.generalstore:id/totalAmountLbl");
+    private final By TERMS_AND_CONDITIONS_BUTTON = AppiumBy.id("com.androidsample.generalstore:id/termsButton");
+    private final By TERMS_AND_CONDITIONS_CLOSE = AppiumBy.id("android:id/button1");
 
     @Test
     public void addProductsToCart() {
@@ -35,6 +37,8 @@ public class ProductsPageTest extends DriverInitializer {
         Assert.assertElementText((PRODUCT_NAME), "Air Jordan 9 Retro");
         double expectedTotalAmount = airJordan_productPrice + nikeSFBJungle_productPrice;
         Assert.assertElementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
+        MobileGestures.longClick(TERMS_AND_CONDITIONS_BUTTON, 2000);
+        MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
     }
 
     public void fillForm() {
@@ -56,7 +60,7 @@ public class ProductsPageTest extends DriverInitializer {
         MobileActions.scrollIntoView(product);
         String price = ElementActions.getText(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice']")).substring(1);
         double productPrice = Double.parseDouble(price);
-        System.out.println("Product: " + product + "price is: " + productPrice);
+        System.out.println("Product: " + product + " price is: " + productPrice);
         return productPrice;
     }
 }

@@ -4,7 +4,6 @@ import actions.ElementActions;
 import com.google.common.collect.ImmutableMap;
 import driver_manager.DriverManager;
 import driver_waits.FluentWaits;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -13,11 +12,11 @@ import org.testng.Assert;
 
 public class MobileGestures {
 
-    public static void longClick(AndroidDriver driver, By elementLocated, int duration) {
+    public static void longClick(final By elementLocated, final int duration) {
         FluentWaits.elementToBeClickable(elementLocated);
         try {
-            ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: longClickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
                     "duration", duration
             ));
         } catch (Exception e) {
@@ -25,7 +24,7 @@ public class MobileGestures {
         }
     }
 
-    public static void doubleClick(By elementLocated) {
+    public static void doubleClick(final By elementLocated) {
         FluentWaits.elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
@@ -36,7 +35,7 @@ public class MobileGestures {
         }
     }
 
-    public static void click(By elementLocated) {
+    public static void click(final By elementLocated) {
         FluentWaits.elementToBeClickable(elementLocated);
         try {
             DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
@@ -47,7 +46,7 @@ public class MobileGestures {
         }
     }
 
-    public static void click(WebElement element) {
+    public static void click(final WebElement element) {
         try {
             DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) element).getId()
@@ -57,7 +56,7 @@ public class MobileGestures {
         }
     }
 
-    public static void swipe(By elementLocated, Direction direction) {
+    public static void swipe(final By elementLocated, final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
@@ -69,7 +68,7 @@ public class MobileGestures {
         }
     }
 
-    public static void swipe(WebElement element, Direction direction) {
+    public static void swipe(final WebElement element, final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) element).getId(),
@@ -81,7 +80,7 @@ public class MobileGestures {
         }
     }
 
-    public static void scrollToElement(By elementLocated, Direction direction) {
+    public static void scrollToElement(final By elementLocated, final Direction direction) {
         boolean canScrollMore = false;
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
@@ -94,7 +93,7 @@ public class MobileGestures {
         }
     }
 
-    public static boolean scrollWithCoordinates(By elementLocated, Direction direction) {
+    public static boolean scrollWithCoordinates(final By elementLocated, final Direction direction) {
         boolean canScrollMore = false;
         boolean elementDisplayed = false;
         try {
@@ -115,7 +114,7 @@ public class MobileGestures {
         return canScrollMore;
     }
 
-    public static void scrollWithCoordinates(Direction direction) {
+    public static void scrollWithCoordinates(final Direction direction) {
         try {
 
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
@@ -128,7 +127,7 @@ public class MobileGestures {
         }
     }
 
-    public static void drag(By elementLocated, int xEndCoordinate, int yEndCoordinate) {
+    public static void drag(final By elementLocated, final int xEndCoordinate, final int yEndCoordinate) {
         FluentWaits.elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
