@@ -140,4 +140,22 @@ public class Assert {
             e.printStackTrace();
         }
     }
+
+    public static void assertElementAttributeToBe(final By elementLocated, final String attribute, final boolean expected) {
+        try {
+            new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), expected);
+            System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void assertElementAttributeToBe(final By elementLocated, final String attribute, final String expected) {
+        try {
+            new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), expected);
+            System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
