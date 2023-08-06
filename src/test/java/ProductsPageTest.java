@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import utilities.reader_manager.properties_reader.PropertiesConfigurations;
 
+import java.time.Duration;
+
 public class ProductsPageTest extends DriverInitializer {
     private final By PRODUCT_TOOL_BAR = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
     private final By PRODUCT_NAME = AppiumBy.id("com.androidsample.generalstore:id/productName");
@@ -37,7 +39,7 @@ public class ProductsPageTest extends DriverInitializer {
         Assert.assertElementText((PRODUCT_NAME), "Air Jordan 9 Retro");
         double expectedTotalAmount = airJordan_productPrice + nikeSFBJungle_productPrice;
         Assert.assertElementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
-        MobileGestures.longClick(TERMS_AND_CONDITIONS_BUTTON, 2000);
+        MobileGestures.longClick(TERMS_AND_CONDITIONS_BUTTON, 1);
         MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
     }
 
