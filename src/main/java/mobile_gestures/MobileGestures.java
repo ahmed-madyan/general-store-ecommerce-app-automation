@@ -12,12 +12,12 @@ import org.testng.Assert;
 
 public class MobileGestures {
 
-    public static void longClick(final By elementLocated, final int duration) {
+    public static void longClick(final By elementLocated, final int durationOfSeconds) {
         FluentWaits.elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: longClickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
-                    "duration", duration
+                    "duration", (durationOfSeconds * 1000)
             ));
         } catch (Exception e) {
             e.printStackTrace();
