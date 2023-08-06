@@ -19,6 +19,7 @@ public class ProductsPageTest extends DriverInitializer {
     private final By COUNTRY_LIST = AppiumBy.id("com.androidsample.generalstore:id/spinnerCountry");
     private final By NAME_TEXT_BOX = AppiumBy.id("com.androidsample.generalstore:id/nameField");
     private final By LETS_SHOP_BUTTON = AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop");
+    private final By TOTAL_AMOUNT_TEXT = AppiumBy.id("com.androidsample.generalstore:id/totalAmountLbl");
 
     @Test
     public void addProductsToCart() {
@@ -26,10 +27,14 @@ public class ProductsPageTest extends DriverInitializer {
         FluentWaits.visibilityOfElementLocated(PRODUCT_TOOL_BAR);
         addToCard("Air Jordan 9 Retro");
         addToCard("Air Jordan 9 Retro");
+        double airJordan_productPrice = getProductPrice("Air Jordan 9 Retro");
         addToCard("Nike SFB Jungle");
+        double nikeSFBJungle_productPrice = getProductPrice("Nike SFB Jungle");
         MobileGestures.click(CART_BUTTON);
         Assert.assertElementAttributeToBe(PRODUCT_TOOL_BAR, "text", "Cart");
         Assert.assertElementText((PRODUCT_NAME), "Air Jordan 9 Retro");
+        double expectedTotalAmount = airJordan_productPrice + nikeSFBJungle_productPrice;
+        Assert.assertElementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
     }
 
     public void fillForm() {
@@ -45,5 +50,13 @@ public class ProductsPageTest extends DriverInitializer {
         if (ElementActions.getText(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']")).equalsIgnoreCase("ADD TO CART"))
             MobileGestures.click(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         else System.out.println("Product: " + product + " already added to the cart");
+    }
+
+    public double getProductPrice(String product) {
+        MobileActions.scrollIntoView(product);
+        String price = ElementActions.getText(AppiumBy.xpath("//android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice']")).substring(1);
+        double productPrice = Double.parseDouble(price);
+        System.out.println("Product: " + product + "price is:" + productPrice);
+        return productPrice;
     }
 }
