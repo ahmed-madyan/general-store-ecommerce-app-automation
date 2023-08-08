@@ -4,8 +4,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import utilities.reader_manager.properties_reader.PropertiesConfigurations;
-import utilities.reader_manager.properties_reader.PropertiesDataManager;
+import readers.properties_reader.PropertiesConfigurations;
+import readers.properties_reader.PropertiesDataManager;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -89,7 +89,7 @@ public class BrowserStackInitializer {
 
     private static void setupYML() {
         try {
-            MutableCapabilities capabilities = new UiAutomator2Options();
+            MutableCapabilities capabilities = new UiAutomator2Options().setChromedriverExecutable("src/main/resources/app_binaries/chromedriver.exe");
             androidDriver = new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);

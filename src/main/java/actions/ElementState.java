@@ -5,7 +5,7 @@ import driver_waits.FluentWaits;
 
 public class ElementState {
 
-    public static boolean isCheckable(By elementLocated) {
+    public static boolean isCheckable(final By elementLocated) {
         boolean isCheckable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -18,7 +18,7 @@ public class ElementState {
         return isCheckable;
     }
 
-    public static boolean isChecked(By elementLocated) {
+    public static boolean isChecked(final By elementLocated) {
         boolean isChecked = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -31,7 +31,7 @@ public class ElementState {
         return isChecked;
     }
 
-    public static boolean isClickable(By elementLocated) {
+    public static boolean isClickable(final By elementLocated) {
         boolean isClickable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -44,7 +44,7 @@ public class ElementState {
         return isClickable;
     }
 
-    public static boolean isEnabled(By elementLocated) {
+    public static boolean isEnabled(final By elementLocated) {
         boolean isEnabled = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -57,7 +57,7 @@ public class ElementState {
         return isEnabled;
     }
 
-    public static boolean isFocusable(By elementLocated) {
+    public static boolean isFocusable(final By elementLocated) {
         boolean isFocusable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -70,7 +70,7 @@ public class ElementState {
         return isFocusable;
     }
 
-    public static boolean isFocused(By elementLocated) {
+    public static boolean isFocused(final By elementLocated) {
         boolean isFocused = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -83,7 +83,7 @@ public class ElementState {
         return isFocused;
     }
 
-    public static boolean isLongClickable(By elementLocated) {
+    public static boolean isLongClickable(final By elementLocated) {
         boolean isLongClickable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -96,7 +96,7 @@ public class ElementState {
         return isLongClickable;
     }
 
-    public static boolean isPassword(By elementLocated) {
+    public static boolean isPassword(final By elementLocated) {
         boolean isPassword = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -109,7 +109,7 @@ public class ElementState {
         return isPassword;
     }
 
-    public static boolean isScrollable(By elementLocated) {
+    public static boolean isScrollable(final By elementLocated) {
         boolean isScrollable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -122,7 +122,7 @@ public class ElementState {
         return isScrollable;
     }
 
-    public static boolean isSelected(By elementLocated) {
+    public static boolean isSelected(final By elementLocated) {
         boolean isSelected = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -135,7 +135,7 @@ public class ElementState {
         return isSelected;
     }
 
-    public static boolean isDisplayed(By elementLocated) {
+    public static boolean isDisplayed(final By elementLocated) {
         boolean isDisplayed = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);

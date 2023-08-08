@@ -6,10 +6,8 @@ import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import utilities.reader_manager.properties_reader.PropertiesConfigurations;
+import readers.properties_reader.PropertiesConfigurations;
 import driver_waits.FluentWaits;
-
-import java.time.Duration;
 
 public class DriverInitializer {
     private static AndroidDriver androidDriver;

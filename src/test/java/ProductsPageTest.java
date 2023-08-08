@@ -1,15 +1,17 @@
 import actions.ElementActions;
+import actions.KeyEvents;
 import actions.MobileActions;
 import assertions.Assert;
 import driver_manager.DriverInitializer;
+import driver_manager.DriverManager;
 import driver_waits.FluentWaits;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import utilities.reader_manager.properties_reader.PropertiesConfigurations;
+import readers.properties_reader.PropertiesConfigurations;
 
-import java.time.Duration;
+import java.util.Set;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By PRODUCT_TOOL_BAR = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -24,9 +26,10 @@ public class ProductsPageTest extends DriverInitializer {
     private final By TOTAL_AMOUNT_TEXT = AppiumBy.id("com.androidsample.generalstore:id/totalAmountLbl");
     private final By TERMS_AND_CONDITIONS_BUTTON = AppiumBy.id("com.androidsample.generalstore:id/termsButton");
     private final By TERMS_AND_CONDITIONS_CLOSE = AppiumBy.id("android:id/button1");
-
+    private final By SEND_EMAILS_CHECK_BOX = AppiumBy.className("android.widget.CheckBox");
+    private final By COMPLETE_PURCHASE_BUTTON = AppiumBy.id("com.androidsample.generalstore:id/btnProceed");
     @Test
-    public void addProductsToCart() {
+    public void addProductsToCart() throws InterruptedException {
         fillForm();
         FluentWaits.visibilityOfElementLocated(PRODUCT_TOOL_BAR);
         addToCard("Air Jordan 9 Retro");
@@ -36,11 +39,22 @@ public class ProductsPageTest extends DriverInitializer {
         double nikeSFBJungle_productPrice = getProductPrice("Nike SFB Jungle");
         MobileGestures.click(CART_BUTTON);
         Assert.assertElementAttributeToBe(PRODUCT_TOOL_BAR, "text", "Cart");
-        Assert.assertElementText((PRODUCT_NAME), "Air Jordan 9 Retro");
+        Assert.assertElementText(PRODUCT_NAME, "Air Jordan 9 Retro");
         double expectedTotalAmount = airJordan_productPrice + nikeSFBJungle_productPrice;
         Assert.assertElementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
         MobileGestures.longClick(TERMS_AND_CONDITIONS_BUTTON, 1);
         MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
+        MobileGestures.click(SEND_EMAILS_CHECK_BOX);
+        MobileGestures.click(COMPLETE_PURCHASE_BUTTON);
+        Thread.sleep(5000);
+        Set<String> contextList = DriverManager.getDriverInstance().getContextHandles();
+        System.out.println(contextList);
+        DriverManager.switchContext("WEBVIEW_com.androidsample.generalstore");
+        System.out.println(DriverManager.getDriverInstance().getCurrentUrl());
+        KeyEvents.keyBack();
+        DriverManager.switchContext("NATIVE_APP");
+        Thread.sleep(5000);
+        fillForm();
     }
 
     public void fillForm() {

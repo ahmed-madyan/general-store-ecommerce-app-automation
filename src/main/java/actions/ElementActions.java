@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ElementActions {
 
-    public static WebElement findElement(By elementLocated) {
+    public static WebElement findElement(final By elementLocated) {
         WebElement element = null;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -22,7 +22,7 @@ public class ElementActions {
         return element;
     }
 
-    public static List<WebElement> findElements(By elementLocated) {
+    public static List<WebElement> findElements(final By elementLocated) {
         List<WebElement> element = null;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -33,7 +33,7 @@ public class ElementActions {
         return element;
     }
 
-    public static void click(By elementLocated) {
+    public static void click(final By elementLocated) {
         try {
             findElement(elementLocated).click();
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class ElementActions {
         }
     }
 
-    public static void sendKeys(By elementLocated, String keyToSend) {
+    public static void sendKeys(final By elementLocated, final String keyToSend) {
         try {
             findElement(elementLocated).sendKeys(keyToSend);
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public class ElementActions {
         }
     }
 
-    public static String getText(By elementLocated) {
+    public static String getText(final By elementLocated) {
         String elementText = null;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -60,7 +60,7 @@ public class ElementActions {
         return elementText;
     }
 
-    public static String getAttribute(By elementLocated, String attribute) {
+    public static String getAttribute(final By elementLocated, String attribute) {
         String attributeValue = null;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -71,7 +71,7 @@ public class ElementActions {
         return attributeValue;
     }
 
-    public static int getMiddleLocationX(By elementLocated) {
+    public static int getMiddleLocationX(final By elementLocated) {
         int leftLocationX;
         int rightLocationX;
         int middleLocationX = 0;
@@ -90,7 +90,7 @@ public class ElementActions {
         return middleLocationX;
     }
 
-    public static int getMiddleLocationY(By elementLocated) {
+    public static int getMiddleLocationY(final By elementLocated) {
         int upperLocationY;
         int lowerLocationY;
         int middleLocationY = 0;
@@ -109,7 +109,7 @@ public class ElementActions {
         return middleLocationY;
     }
 
-    public static int getElementLocationX(By elementLocated) {
+    public static int getElementLocationX(final By elementLocated) {
         int elementLocationX = 0;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -121,7 +121,7 @@ public class ElementActions {
         return elementLocationX;
     }
 
-    public static int getElementWidth(By elementLocated) {
+    public static int getElementWidth(final By elementLocated) {
         int elementWidth = 0;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -133,7 +133,7 @@ public class ElementActions {
         return elementWidth;
     }
 
-    public static int getElementLocationY(By elementLocated) {
+    public static int getElementLocationY(final By elementLocated) {
         int elementLocationY = 0;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -145,7 +145,7 @@ public class ElementActions {
         return elementLocationY;
     }
 
-    public static int getElementHeight(By elementLocated) {
+    public static int getElementHeight(final By elementLocated) {
         int elementHeight = 0;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -157,7 +157,7 @@ public class ElementActions {
         return elementHeight;
     }
 
-    public static void selectByVisibleText(By elementLocated, String visibleText) {
+    public static void selectByVisibleText(final By elementLocated, final String visibleText) {
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
@@ -166,7 +166,7 @@ public class ElementActions {
         }
     }
 
-    public static void highlightWebElementLocated(By elementLocated) {
+    public static void highlightWebElementLocated(final By elementLocated) {
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));

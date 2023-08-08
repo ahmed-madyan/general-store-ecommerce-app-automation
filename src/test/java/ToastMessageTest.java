@@ -7,11 +7,11 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class ToastMessageTest extends DriverInitializer {
-    private final By letsShop_btn = AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop");
+    private final By LETS_SHOP_BUTTON = AppiumBy.id("com.androidsample.generalstore:id/btnLetsShop");
 
     @Test
     public void validateToastMessage() {
-        MobileGestures.click(letsShop_btn);
+        MobileGestures.click(LETS_SHOP_BUTTON);
         Assert.assertTextToBe(MobileActions.getToastMessage(), "Please enter your name");
     }
 }

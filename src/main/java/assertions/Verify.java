@@ -1,13 +1,14 @@
 package assertions;
 
 import actions.ElementState;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 public class Verify {
     static SoftAssert softAssert = new SoftAssert();
 
-    public static void assertElementCheckable(By elementLocated) {
+    public static void assertElementCheckable(@NotNull final By elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
             softAssert.assertAll();
@@ -17,7 +18,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementChecked(By elementLocated) {
+    public static void assertElementChecked(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
             softAssert.assertAll();
@@ -27,7 +28,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementClickable(By elementLocated) {
+    public static void assertElementClickable(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
             softAssert.assertAll();
@@ -37,7 +38,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementEnabled(By elementLocated) {
+    public static void assertElementEnabled(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
             softAssert.assertAll();
@@ -47,7 +48,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementFocusable(By elementLocated) {
+    public static void assertElementFocusable(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
             softAssert.assertAll();
@@ -57,7 +58,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementFocused(By elementLocated) {
+    public static void assertElementFocused(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
             softAssert.assertAll();
@@ -67,7 +68,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementLongClickable(By elementLocated) {
+    public static void assertElementLongClickable(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
             softAssert.assertAll();
@@ -77,7 +78,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementPassword(By elementLocated) {
+    public static void assertElementPassword(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
             softAssert.assertAll();
@@ -87,7 +88,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementScrollable(By elementLocated) {
+    public static void assertElementScrollable(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
             softAssert.assertAll();
@@ -97,7 +98,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementSelected(By elementLocated) {
+    public static void assertElementSelected(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
             softAssert.assertAll();
@@ -107,7 +108,7 @@ public class Verify {
         }
     }
 
-    public static void assertElementDisplayed(By elementLocated) {
+    public static void assertElementDisplayed(@NotNull final By  elementLocated) {
         try {
             softAssert.assertTrue(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
             softAssert.assertAll();

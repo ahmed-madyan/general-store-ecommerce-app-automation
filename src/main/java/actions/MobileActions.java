@@ -2,6 +2,7 @@ package actions;
 
 import driver_manager.DriverManager;
 import driver_waits.FluentWaits;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.Activity;
 import org.openqa.selenium.By;
@@ -9,7 +10,7 @@ import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.ScreenOrientation;
 
 public class MobileActions {
-    public static void startActivity(String appPackage, String appActivity) {
+    public static void startActivity(@NotNull final String appPackage, @NotNull final String appActivity) {
         try {
             DriverManager.getDriverInstance().startActivity(new Activity(appPackage.trim(), appActivity.trim()));
         } catch (Exception e) {
@@ -17,7 +18,7 @@ public class MobileActions {
         }
     }
 
-    public static void scrollIntoView(String elementText) {
+    public static void scrollIntoView(@NotNull final String elementText) {
         try {
             DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
         } catch (Exception e) {
@@ -25,7 +26,7 @@ public class MobileActions {
         }
     }
 
-    public static void scrollIntoElementView(By elementLocated, String elementText) {
+    public static void scrollIntoElementView(@NotNull final By elementLocated, final String elementText) {
         try {
             DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
             FluentWaits.visibilityOfElementLocated(elementLocated);
@@ -34,7 +35,7 @@ public class MobileActions {
         }
     }
 
-    public static void setClipboardText(String text) {
+    public static void setClipboardText(@NotNull final String text) {
         try {
             DriverManager.getDriverInstance().setClipboardText(text);
         } catch (Exception e) {
@@ -68,7 +69,7 @@ public class MobileActions {
         }
     }
 
-    public static void rotateCustomAngle(int angle) {
+    public static void rotateCustomAngle(@NotNull final int angle) {
         try {
             DriverManager.getDriverInstance().rotate(new DeviceRotation(0, 0, angle));
         } catch (Exception e) {

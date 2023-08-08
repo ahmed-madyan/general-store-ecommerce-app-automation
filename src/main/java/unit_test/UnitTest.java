@@ -1,6 +1,6 @@
 package unit_test;
 
-import utilities.reader_manager.properties_reader.PropertiesDataManager;
+import readers.properties_reader.PropertiesDataManager;
 
 public class UnitTest {
     public static void main(String[] args) {

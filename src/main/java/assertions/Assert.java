@@ -2,11 +2,12 @@ package assertions;
 
 import actions.ElementActions;
 import actions.ElementState;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.testng.asserts.Assertion;
 
 public class Assert {
-    public static void assertElementCheckable(By elementLocated) {
+    public static void assertElementCheckable(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
             System.out.println("Element located with {" + elementLocated + "} is checkable");
@@ -15,7 +16,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementChecked(By elementLocated) {
+    public static void assertElementChecked(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
             System.out.println("Element located with {" + elementLocated + "} is checked");
@@ -24,7 +25,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementClickable(By elementLocated) {
+    public static void assertElementClickable(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
             System.out.println("Element located with {" + elementLocated + "} is clickable");
@@ -33,7 +34,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementEnabled(By elementLocated) {
+    public static void assertElementEnabled(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
             System.out.println("Element located with {" + elementLocated + "} is enabled");
@@ -42,7 +43,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementFocusable(By elementLocated) {
+    public static void assertElementFocusable(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
             System.out.println("Element located with {" + elementLocated + "} is focusable");
@@ -51,7 +52,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementFocused(By elementLocated) {
+    public static void assertElementFocused(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
             System.out.println("Element located with {" + elementLocated + "} is focused");
@@ -60,7 +61,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementLongClickable(By elementLocated) {
+    public static void assertElementLongClickable(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
             System.out.println("Element located with {" + elementLocated + "} is long-clickable");
@@ -69,7 +70,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementPassword(By elementLocated) {
+    public static void assertElementPassword(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
             System.out.println("Element located with {" + elementLocated + "} is password");
@@ -78,7 +79,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementScrollable(By elementLocated) {
+    public static void assertElementScrollable(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
             System.out.println("Element located with {" + elementLocated + "} is scrollable");
@@ -87,7 +88,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementSelected(By elementLocated) {
+    public static void assertElementSelected(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
             System.out.println("Element located with {" + elementLocated + "} is selected");
@@ -96,7 +97,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementDisplayed(By elementLocated) {
+    public static void assertElementDisplayed(@NotNull final By elementLocated) {
         try {
             new Assertion().assertTrue(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
             System.out.println("Element located with {" + elementLocated + "} is displayed");
@@ -105,7 +106,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementText(By elementLocated, String expectedText) {
+    public static void assertElementText(@NotNull final By elementLocated, final String expectedText) {
         try {
             new Assertion().assertEquals(ElementActions.getText(elementLocated).trim(), expectedText.trim());
             System.out.println("Element text {" + ElementActions.getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText.trim() + "}");
@@ -114,7 +115,7 @@ public class Assert {
         }
     }
 
-    public static void assertTextToBe(String actualText, String expectedText) {
+    public static void assertTextToBe(@NotNull final String actualText, @NotNull final String expectedText) {
         try {
             new Assertion().assertEquals(actualText, expectedText);
             System.out.println("Actual text {" + actualText + "} is equals to the expected text {" + expectedText + "}");
@@ -123,7 +124,7 @@ public class Assert {
         }
     }
 
-    public static void assertAttributeToBe(String attribute, boolean expected) {
+    public static void assertAttributeToBe(@NotNull final String attribute, @NotNull final boolean expected) {
         try {
             new Assertion().assertEquals(attribute, expected);
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
@@ -132,7 +133,7 @@ public class Assert {
         }
     }
 
-    public static void assertAttributeToBe(String attribute, String expected) {
+    public static void assertAttributeToBe(@NotNull final String attribute, @NotNull final String expected) {
         try {
             new Assertion().assertEquals(attribute, expected);
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
@@ -141,7 +142,7 @@ public class Assert {
         }
     }
 
-    public static void assertElementAttributeToBe(final By elementLocated, final String attribute, final boolean expected) {
+    public static void assertElementAttributeToBe(@NotNull final By elementLocated, @NotNull final String attribute, @NotNull final boolean expected) {
         try {
             new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), expected);
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
@@ -150,10 +151,10 @@ public class Assert {
         }
     }
 
-    public static void assertElementAttributeToBe(final By elementLocated, final String attribute, final String expected) {
+    public static void assertElementAttributeToBe(@NotNull final By elementLocated, @NotNull final String attribute, @NotNull final String value) {
         try {
-            new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), expected);
-            System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
+            new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), value);
+            System.out.println("Attribute {" + attribute + "} is equals to the expected {" + value + "}");
         } catch (Exception e) {
             e.printStackTrace();
         }

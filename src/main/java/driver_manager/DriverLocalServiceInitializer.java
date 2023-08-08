@@ -4,7 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import utilities.reader_manager.properties_reader.PropertiesDataManager;
+import readers.properties_reader.PropertiesDataManager;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -27,7 +27,8 @@ public class DriverLocalServiceInitializer {
             return new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.EXECUTION)),
                     new UiAutomator2Options()
                             .setDeviceName(PropertiesDataManager.getProperty("mobile_deviceName", PropertiesDataManager.Capability.MOBILE))
-                            .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\general-store-ecommerce-hybrid-app-automation\\src\\main\\resources\\app_binaries\\General-Store.apk"));
+                            .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\general-store-ecommerce-hybrid-app-automation\\src\\main\\resources\\app_binaries\\General-Store.apk")
+                            .setChromedriverExecutable("C:\\Users\\_VOIS\\Documents\\GitHub\\general-store-ecommerce-hybrid-app-automation\\src\\main\\resources\\app_binaries\\chromedriver.exe"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
