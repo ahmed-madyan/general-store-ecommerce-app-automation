@@ -1,7 +1,7 @@
 import actions.ElementActions;
 import actions.KeyEvents;
 import actions.MobileActions;
-import assertions.Assert;
+import assertions.Assertions;
 import driver_manager.DriverInitializer;
 import driver_manager.DriverManager;
 import driver_waits.FluentWaits;
@@ -36,12 +36,13 @@ public class ProductsPageTest extends DriverInitializer {
         float nikeSFBJungle_productPrice = getProductPrice("Nike SFB Jungle");
         addToCard("Air Jordan 4 Retro");
         float airJordan4_productPrice = getProductPrice("Air Jordan 4 Retro");
+        Assertions.hardAssert().elementDisplayed(ADD_TO_CART_BUTTON);
         MobileGestures.click(CART_BUTTON);
-        Assert.assertElementAttributeToBe(PRODUCT_TOOL_BAR, "text", "Cart");
-        Assert.assertElementText(PRODUCT_NAME, "Air Jordan 9 Retro");
+        Assertions.hardAssert().elementAttributeToBe(PRODUCT_TOOL_BAR, "text", "Cart");
+        Assertions.hardAssert().elementText(PRODUCT_NAME, "Air Jordan 9 Retro");
         float expectedTotalAmount = airJordan9_productPrice + nikeSFBJungle_productPrice + airJordan4_productPrice;
         System.out.println("Expected total amount: " + expectedTotalAmount);
-        Assert.assertElementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
+        Assertions.hardAssert().elementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
         MobileGestures.longClick(TERMS_AND_CONDITIONS_BUTTON, 1);
         MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
         MobileGestures.click(SEND_EMAILS_CHECK_BOX);
@@ -57,6 +58,8 @@ public class ProductsPageTest extends DriverInitializer {
     }
 
     public void fillForm() {
+        Assertions.hardAssert().elementDisplayed(COUNTRY_LIST);
+        Assertions.hardAssert().elementDisplayed(FEMALE_RADIO_BUTTON);
         ElementActions.sendKeys(NAME_TEXT_BOX, "Ahmed");
         MobileGestures.click(MALE_RADIO_BUTTON);
         MobileGestures.click(LETS_SHOP_BUTTON);
