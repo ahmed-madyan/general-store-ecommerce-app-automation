@@ -37,6 +37,7 @@ public class ProductsPageTest extends DriverInitializer {
         double airJordan_productPrice = getProductPrice("Air Jordan 9 Retro");
         addToCard("Nike SFB Jungle");
         double nikeSFBJungle_productPrice = getProductPrice("Nike SFB Jungle");
+        addToCard("Air Jordan 4 Retro");
         MobileGestures.click(CART_BUTTON);
         Assert.assertElementAttributeToBe(PRODUCT_TOOL_BAR, "text", "Cart");
         Assert.assertElementText(PRODUCT_NAME, "Air Jordan 9 Retro");
@@ -65,8 +66,8 @@ public class ProductsPageTest extends DriverInitializer {
 
     public void addToCard(String product) {
         MobileActions.scrollIntoView(product);
-        if (PropertiesConfigurations.getExecution_Platform().equalsIgnoreCase("local"))
-            MobileGestures.scrollWithCoordinates(MobileGestures.Direction.DOWN);
+//        if (PropertiesConfigurations.getExecution_Platform().equalsIgnoreCase("local"))
+//            MobileGestures.scrollWithCoordinates(MobileGestures.Direction.DOWN);
         if (ElementActions.getText(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']")).equalsIgnoreCase("ADD TO CART"))
             MobileGestures.click(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         else System.out.println("Product: " + product + " already added to the cart");
