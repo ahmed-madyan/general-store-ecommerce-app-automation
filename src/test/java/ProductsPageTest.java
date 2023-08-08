@@ -47,7 +47,7 @@ public class ProductsPageTest extends DriverInitializer {
         MobileGestures.click(SEND_EMAILS_CHECK_BOX);
         MobileGestures.click(COMPLETE_PURCHASE_BUTTON);
         Thread.sleep(5000);
-        System.out.println(DriverManager.getContextList());
+        System.out.println(DriverManager.getContextHandles());
         DriverManager.switchContext("WEBVIEW_com.androidsample.generalstore");
         System.out.println(DriverManager.getDriverInstance().getCurrentUrl());
         KeyEvents.keyBack();

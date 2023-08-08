@@ -10,8 +10,12 @@ public class DriverManager {
         return DriverInitializer.getDriver();
     }
 
-    public static Set<String> getContextList() {
+    public static Set<String> getContextHandles() {
         return DriverManager.getDriverInstance().getContextHandles();
+    }
+
+    public static String getCurrentContextHandle() {
+        return DriverManager.getDriverInstance().getContext();
     }
     public static void switchContext(@NotNull final String context) {
         getDriverInstance().context(context);
