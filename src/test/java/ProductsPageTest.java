@@ -9,9 +9,6 @@ import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import readers.properties_reader.PropertiesConfigurations;
-
-import java.util.Set;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By PRODUCT_TOOL_BAR = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -34,22 +31,23 @@ public class ProductsPageTest extends DriverInitializer {
         FluentWaits.visibilityOfElementLocated(PRODUCT_TOOL_BAR);
         addToCard("Air Jordan 9 Retro");
         addToCard("Air Jordan 9 Retro");
-        double airJordan_productPrice = getProductPrice("Air Jordan 9 Retro");
+        float airJordan9_productPrice = getProductPrice("Air Jordan 9 Retro");
         addToCard("Nike SFB Jungle");
-        double nikeSFBJungle_productPrice = getProductPrice("Nike SFB Jungle");
+        float nikeSFBJungle_productPrice = getProductPrice("Nike SFB Jungle");
         addToCard("Air Jordan 4 Retro");
+        float airJordan4_productPrice = getProductPrice("Air Jordan 4 Retro");
         MobileGestures.click(CART_BUTTON);
         Assert.assertElementAttributeToBe(PRODUCT_TOOL_BAR, "text", "Cart");
         Assert.assertElementText(PRODUCT_NAME, "Air Jordan 9 Retro");
-        double expectedTotalAmount = airJordan_productPrice + nikeSFBJungle_productPrice;
+        float expectedTotalAmount = airJordan9_productPrice + nikeSFBJungle_productPrice + airJordan4_productPrice;
+        System.out.println("Expected total amount: " + expectedTotalAmount);
         Assert.assertElementText(TOTAL_AMOUNT_TEXT, ("$ " + expectedTotalAmount).trim());
         MobileGestures.longClick(TERMS_AND_CONDITIONS_BUTTON, 1);
         MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
         MobileGestures.click(SEND_EMAILS_CHECK_BOX);
         MobileGestures.click(COMPLETE_PURCHASE_BUTTON);
         Thread.sleep(5000);
-        Set<String> contextList = DriverManager.getDriverInstance().getContextHandles();
-        System.out.println(contextList);
+        System.out.println(DriverManager.getContextList());
         DriverManager.switchContext("WEBVIEW_com.androidsample.generalstore");
         System.out.println(DriverManager.getDriverInstance().getCurrentUrl());
         KeyEvents.keyBack();
@@ -66,17 +64,15 @@ public class ProductsPageTest extends DriverInitializer {
 
     public void addToCard(String product) {
         MobileActions.scrollIntoView(product);
-//        if (PropertiesConfigurations.getExecution_Platform().equalsIgnoreCase("local"))
-//            MobileGestures.scrollWithCoordinates(MobileGestures.Direction.DOWN);
         if (ElementActions.getText(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']")).equalsIgnoreCase("ADD TO CART"))
             MobileGestures.click(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         else System.out.println("Product: " + product + " already added to the cart");
     }
 
-    public double getProductPrice(String product) {
+    public float getProductPrice(String product) {
         MobileActions.scrollIntoView(product);
         String price = ElementActions.getText(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice']")).substring(1);
-        double productPrice = Double.parseDouble(price);
+        float productPrice = Float.parseFloat(price);
         System.out.println("Product: " + product + " price is: " + productPrice);
         return productPrice;
     }
