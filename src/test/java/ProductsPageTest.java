@@ -4,11 +4,13 @@ import actions.MobileActions;
 import assertions.Assertions;
 import driver_manager.DriverInitializer;
 import driver_manager.DriverManager;
-import driver_waits.FluentWaits;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import waits.Waits;
+
+import java.time.Duration;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By PRODUCT_TOOL_BAR = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -28,7 +30,7 @@ public class ProductsPageTest extends DriverInitializer {
     @Test
     public void addProductsToCart() throws InterruptedException {
         fillForm();
-        FluentWaits.visibilityOfElementLocated(PRODUCT_TOOL_BAR);
+        Waits.fluentlyWait().visibilityOfElementLocated(PRODUCT_TOOL_BAR);
         addToCard("Air Jordan 9 Retro");
         addToCard("Air Jordan 9 Retro");
         float airJordan9_productPrice = getProductPrice("Air Jordan 9 Retro");
@@ -47,13 +49,13 @@ public class ProductsPageTest extends DriverInitializer {
         MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
         MobileGestures.click(SEND_EMAILS_CHECK_BOX);
         MobileGestures.click(COMPLETE_PURCHASE_BUTTON);
-        Thread.sleep(5000);
+        DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         System.out.println(DriverManager.getContextHandles());
         DriverManager.switchContext("WEBVIEW_com.androidsample.generalstore");
+        Waits.explicitlyWait().contextToBe("WEBVIEW_com.androidsample.generalstore");
         System.out.println(DriverManager.getDriverInstance().getCurrentUrl());
         KeyEvents.keyBack();
         DriverManager.switchContext("NATIVE_APP");
-        Thread.sleep(5000);
         fillForm();
     }
 
