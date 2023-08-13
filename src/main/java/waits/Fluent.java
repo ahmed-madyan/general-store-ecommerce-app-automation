@@ -104,6 +104,15 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
+    }
+
+    public Fluent urlContains(String expectedURL) {
+        try {
+            driverWait.until(ExpectedConditions.urlContains(expectedURL));
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
 
     }
 }

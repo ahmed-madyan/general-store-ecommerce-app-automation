@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression Test Suite">
-    <test name="Regression Test">
+<suite name="Regression MobileBrowserTest Suite">
+    <test name="Regression MobileBrowserTest">
         <classes>
             <class name="SignUpFormTest"/>
             <class name="ToastMessageTest"/>

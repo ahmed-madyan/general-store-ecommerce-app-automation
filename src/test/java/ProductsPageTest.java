@@ -1,6 +1,7 @@
 import actions.ElementActions;
 import actions.KeyEvents;
 import actions.MobileActions;
+import actions.TouchActions;
 import assertions.Assertions;
 import driver_manager.DriverInitializer;
 import driver_manager.DriverManager;
@@ -9,8 +10,6 @@ import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import waits.Waits;
-
-import java.time.Duration;
 
 public class ProductsPageTest extends DriverInitializer {
     private final By PRODUCT_TOOL_BAR = AppiumBy.id("com.androidsample.generalstore:id/toolbar_title");
@@ -49,10 +48,9 @@ public class ProductsPageTest extends DriverInitializer {
         MobileGestures.click(TERMS_AND_CONDITIONS_CLOSE);
         MobileGestures.click(SEND_EMAILS_CHECK_BOX);
         MobileGestures.click(COMPLETE_PURCHASE_BUTTON);
-        DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        Thread.sleep(5000);
         System.out.println(DriverManager.getContextHandles());
         DriverManager.switchContext("WEBVIEW_com.androidsample.generalstore");
-        Waits.explicitlyWait().contextToBe("WEBVIEW_com.androidsample.generalstore");
         System.out.println(DriverManager.getDriverInstance().getCurrentUrl());
         KeyEvents.keyBack();
         DriverManager.switchContext("NATIVE_APP");
@@ -60,6 +58,7 @@ public class ProductsPageTest extends DriverInitializer {
     }
 
     public void fillForm() {
+        Waits.fluentlyWait().visibilityOfElementLocated(COUNTRY_LIST);
         Assertions.hardAssert().elementDisplayed(COUNTRY_LIST);
         Assertions.hardAssert().elementDisplayed(FEMALE_RADIO_BUTTON);
         ElementActions.sendKeys(NAME_TEXT_BOX, "Ahmed");
@@ -68,14 +67,14 @@ public class ProductsPageTest extends DriverInitializer {
     }
 
     public void addToCard(String product) {
-        MobileActions.scrollIntoView(product);
+        TouchActions.scrollToElement(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']"));
         if (ElementActions.getText(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']")).equalsIgnoreCase("ADD TO CART"))
             MobileGestures.click(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']"));
         else System.out.println("Product: " + product + " already added to the cart");
     }
 
     public float getProductPrice(String product) {
-        MobileActions.scrollIntoView(product);
+        TouchActions.scrollToElement(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']"));
         String price = ElementActions.getText(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productName' and @text='" + product + "']/following-sibling::android.widget.LinearLayout/android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice']")).substring(1);
         float productPrice = Float.parseFloat(price);
         System.out.println("Product: " + product + " price is: " + productPrice);
