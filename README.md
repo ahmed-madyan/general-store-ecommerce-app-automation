@@ -7,3 +7,9 @@ Sample response
 
 Sample request for deleting the App
 curl -u "ahmedmadyan_oxTGNa:efFbRGj4yaxcVuPxyJKs" -X DELETE "https://api-cloud.browserstack.com/app-automate/app/delete/1824c7990fe34023bdd4e19715f15873e71ea265"
+
+Browser stack plan
+curl -u "ahmedmadyan_oxTGNa:efFbRGj4yaxcVuPxyJKs" https://api.browserstack.com/automate/plan.json
+
+Browser stack available browsers and devices
+curl -u "ahmedmadyan_oxTGNa:efFbRGj4yaxcVuPxyJKs" https://api.browserstack.com/automate/browsers.json
