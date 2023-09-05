@@ -88,8 +88,10 @@ public class BrowserStackInitializer {
     }
 
     private static void setupYML() {
+        MutableCapabilities capabilities = null;
         try {
-            MutableCapabilities capabilities = new UiAutomator2Options().setChromedriverExecutable("src/main/resources/app_binaries/chromedriver.exe");
+            System.out.println("Mutable Capabilities: " + capabilities);
+            capabilities = new UiAutomator2Options().setChromedriverExecutable("src/main/resources/app_binaries/chromedriver.exe");
             androidDriver = new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
